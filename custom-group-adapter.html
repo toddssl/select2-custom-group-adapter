@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+
+<head runat="server">
+  <title></title>
+
+  <style>
+    .select2-container {
+      width: 500px !important;
+    }
+  </style>
+
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/css/select2.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/select2/4.0.4/js/select2.full.min.js"></script>
+  <script src="/custom-group-adapter.js"></script>
+
+</head>
+
+<body>
+
+  <h3>Select2 Custom Group Example</h3>
+
+  Demo
+  <div>
+    <div class="container">
+      <div class="row">
+        Result
+        <select id="result"></select>
+      </div>
+    </div>
+  </div>
+
+</body>
+
+</html>
+
+<script>
+
+  $(function() {
+
+    var data = [
+      { "id": "A", "text": "A", "level": 1 },
+      { "id": "A1", "text": "A1", "level": 2 },
+      { "id": "A11", "text": "A11", "level": 3 },
+      { "id": "A12", "text": "A12", "level": 3 },
+      { "id": "B", "text": "B", "level": 1 },
+      { "id": "B1", "text": "B1", "level": 2 },
+      { "id": "B11", "text": "B11", "level": 3 },
+      { "id": "B12", "text": "B12", "level": 3 }
+    ];
+
+    $("#result").select2({
+        data: data,
+        resultsAdapter: $.fn.select2.amd.require("CustomResultsAdapter"),
+    });
+  });
+
+
+</script>
